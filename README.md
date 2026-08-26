@@ -53,3 +53,7 @@ Unit and widget testing implementation details (TBD).
 ## Known Limitations
 - No actual backend connected.
 - All modifications (tasks created, modified) are held in memory by the mock repositories and will be lost on app restart.
+
+## Screen Recording
+Watch the full walkthrough (login, project/task management, assignment, offline handling, logout):
+https://drive.google.com/file/d/1bGns7GqSyAKrpSfPT5cK2VIYJ89l9SL_/view?usp=drive_link
