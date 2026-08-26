@@ -23,6 +23,7 @@ import '../../domain/entities/user.dart';
 
 import '../../domain/usecases/login_usecase.dart';
 import '../../domain/usecases/get_projects_usecase.dart';
+import '../../presentation/providers/auth_notifier.dart';
 import '../../domain/usecases/create_project_usecase.dart';
 import '../../domain/usecases/update_project_usecase.dart';
 import '../../domain/usecases/delete_project_usecase.dart';
@@ -134,12 +135,11 @@ final commentRepositoryProvider = Provider<CommentRepository>(
 );
 
 final orgMembersProvider = FutureProvider<List<User>>((ref) async {
-  final authRepo = ref.watch(authRepositoryProvider);
-  final userRepo = ref.watch(userRepositoryProvider);
-  final session = await authRepo.getCurrentSession();
-  if (session == null) return [];
+  final authState = ref.watch(authNotifierProvider);
+  if (!authState.isAuthenticated || authState.session == null) return [];
   
-  return userRepo.getOrgMembers(session.orgId);
+  final userRepo = ref.watch(userRepositoryProvider);
+  return userRepo.getOrgMembers(authState.session!.orgId);
 });
 
 // ─────────────────────────────────────────────

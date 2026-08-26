@@ -82,6 +82,15 @@
 			"task_count": 4,
 			"status": "active",
 			"created_at": "2026-02-05T10:00:00Z"
+		},
+		{
+			"id": "proj_1004",
+			"org_id": "org_d4e5f6",
+			"name": "Internal Tools Upgrade",
+			"description": "Modernize the admin dashboard and internal analytics.",
+			"task_count": 0,
+			"status": "active",
+			"created_at": "2026-03-01T10:00:00Z"
 		}
 	],
 
@@ -325,6 +334,12 @@
 			},
 			{
 				"email": "marcus.member@nimbusdigital.test",
+				"password": "Password123!",
+				"org_id": "org_a1b2c3",
+				"role": "member"
+			},
+			{
+				"email": "priya.member@nimbusdigital.test",
 				"password": "Password123!",
 				"org_id": "org_a1b2c3",
 				"role": "member"

@@ -7,7 +7,7 @@ class AppTextStyles {
   );
   
   static const TextStyle h2 = TextStyle(
-    fontSize: 22,
+    fontSize: 21,
     fontWeight: FontWeight.w700,
   );
   

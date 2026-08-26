@@ -29,7 +29,7 @@ class AppColors {
 
   // Priority Colors
   static const Color priorityLow = Color(0xFF9CA3AF);
-  static const Color priorityMedium = Color(0xFF3B82F6);
+  static const Color priorityMedium = Color(0xFF1A66E1);
   static const Color priorityHigh = Color(0xFFF59E0B);
   static const Color priorityUrgent = Color(0xFFEF4444);
 }

@@ -205,15 +205,20 @@ class _CreateEditTaskScreenState extends ConsumerState<CreateEditTaskScreen> {
                   ),
                   const SizedBox(height: AppSpacing.md),
                   membersAsync.when(
-                    data: (members) => DropdownButtonFormField<String?>(
-                      value: _assigneeId,
-                      decoration: const InputDecoration(labelText: 'Assignee'),
-                      items: [
-                        const DropdownMenuItem<String?>(value: null, child: Text('Unassigned')),
-                        ...members.map((m) => DropdownMenuItem(value: m.id, child: Text(m.name))),
-                      ],
-                      onChanged: (val) => setState(() => _assigneeId = val),
-                    ),
+                    data: (members) {
+                      final hasAssignee = _assigneeId == null || members.any((m) => m.id == _assigneeId);
+                      final safeAssigneeId = hasAssignee ? _assigneeId : null;
+
+                      return DropdownButtonFormField<String?>(
+                        value: safeAssigneeId,
+                        decoration: const InputDecoration(labelText: 'Assignee'),
+                        items: [
+                          const DropdownMenuItem<String?>(value: null, child: Text('Unassigned')),
+                          ...members.map((m) => DropdownMenuItem(value: m.id, child: Text(m.name))),
+                        ],
+                        onChanged: (val) => setState(() => _assigneeId = val),
+                      );
+                    },
                     loading: () => const Center(child: CircularProgressIndicator()),
                     error: (e, st) => Text('Failed to load members: $e'),
                   ),
